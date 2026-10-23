@@ -176,15 +176,28 @@ ${cleanMessage}
     // 2. Try Nodemailer SMTP if SMTP_USER & SMTP_PASS are configured (e.g. Gmail App Password)
     if (!deliveredVia && process.env.SMTP_USER && process.env.SMTP_PASS) {
       try {
-        const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST || "smtp.gmail.com",
-          port: Number(process.env.SMTP_PORT) || 465,
-          secure: Number(process.env.SMTP_PORT) === 465 || !process.env.SMTP_PORT,
-          auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-          },
-        });
+        const isGmail = (process.env.SMTP_HOST || "").includes("gmail") || (process.env.SMTP_USER || "").endsWith("@gmail.com");
+        const cleanPassword = process.env.SMTP_PASS.replace(/\s+/g, "");
+
+        const transporter = nodemailer.createTransport(
+          isGmail
+            ? {
+                service: "gmail",
+                auth: {
+                  user: process.env.SMTP_USER,
+                  pass: cleanPassword,
+                },
+              }
+            : {
+                host: process.env.SMTP_HOST || "smtp.gmail.com",
+                port: Number(process.env.SMTP_PORT) || 465,
+                secure: Number(process.env.SMTP_PORT) === 465 || !process.env.SMTP_PORT,
+                auth: {
+                  user: process.env.SMTP_USER,
+                  pass: cleanPassword,
+                },
+              }
+        );
 
         await transporter.sendMail({
           from: `"${cleanName} via utsho" <${process.env.SMTP_USER}>`,
