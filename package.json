@@ -1,5 +1,5 @@
 {
-  "name": "temp-app",
+  "name": "geoai-agency-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/three": "^0.186.0",
+    "cobe": "^2.0.1",
+    "framer-motion": "^14.6.0",
+    "lucide-react": "^1.59.0",
     "next": "16.4.2",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
