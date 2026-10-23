@@ -788,8 +788,8 @@ export const FOUNDERS = [
     ],
     skills: ["Generative AI", "Agentic RAG", "Computer Vision", "FastAPI", "Next.js", "PyTorch", "SHAP", "pgvector", "Docker"],
     links: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
+      github: "https://github.com/dishaislam",
+      linkedin: "https://www.linkedin.com/in/sharmin-islam-disha/",
       upwork: "https://www.upwork.com",
       email: "mailto:contact@utsho.studio",
     },

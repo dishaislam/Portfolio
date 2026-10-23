@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FOUNDERS } from "@/data/agencyData";
-import { Mail, ExternalLink, Award, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { Mail, ExternalLink, Award, CheckCircle2, ArrowUpRight, Linkedin } from "lucide-react";
 
 export default function FounderProfiles() {
   return (
@@ -100,6 +100,17 @@ export default function FounderProfiles() {
                         title="Personal Website"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                    {founder.links.linkedin && (
+                      <a
+                        href={founder.links.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 border border-[#E7E1D6] hover:border-[#1A1816] text-[#1A1816] transition-colors"
+                        title="LinkedIn Profile"
+                      >
+                        <Linkedin className="w-3.5 h-3.5" />
                       </a>
                     )}
                     {founder.links.email && (
